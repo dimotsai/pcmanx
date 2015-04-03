@@ -399,7 +399,11 @@ void CAppConfig::SetToDefault()
     UAO = 0;
 
 	MailClient = "xdg-email";
+#if defined(__APPLE__) && defined(__MACH__)
+	WebBrowser = "open";
+#else
 	WebBrowser = "xdg-open";
+#endif
 #ifdef USE_DOCKLET
 	ShowTrayIcon = true;
 #endif
